@@ -60,7 +60,7 @@ module=($(head -n 1 ./go.mod))
 
 mod="${module[1]}/functions/${function}"
 
-(cd functions/${function} && go mod init ${mod})
+(cd functions/${function} && go mod init ${mod} && go mod tidy)
 
 go mod tidy
 
