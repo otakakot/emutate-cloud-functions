@@ -16,8 +16,8 @@ reload:
 
 .PHONY: e2e
 e2e:
-	@go test -v ./e2e/...
+	@go test -v ./e2e/... -count=1
 
 .PHONY: e2e2cloud
 e2e2cloud:
-	@export ENDPOINT="" && go test -v ./e2e/...
+	@export ENDPOINT="" && go test -v ./e2e/... -count=1
