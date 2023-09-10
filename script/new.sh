@@ -36,13 +36,16 @@ EOF
 mkdir ./local/${function}
 touch ./local/${function}/main.go
 
+module=($(head -n 1 ./go.mod))
+mod="${module[1]}/functions/${function}"
+
 cat << EOF > ./local/${function}/main.go
 package main
 
 import (
 	"log"
 
-	_ "github.com/otakakot/emutate-cloud-functions/functions/${function}"
+	_ "${mod}"
 
 	// Blank-import the function package so the init() runs
 	"github.com/GoogleCloudPlatform/functions-framework-go/funcframework"
@@ -54,10 +57,6 @@ func main() {
 	}
 }
 EOF
-
-module=($(head -n 1 ./go.mod))
-
-mod="${module[1]}/functions/${function}"
 
 (cd functions/${function} && go mod init ${mod} && go mod tidy)
 
