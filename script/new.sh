@@ -33,10 +33,10 @@ func ${entry}(w http.ResponseWriter, r *http.Request) {
 }
 EOF
 
-mkdir ./functions/local/${function}
-touch ./functions/local/${function}/main.go
+mkdir ./local/${function}
+touch ./local/${function}/main.go
 
-cat << EOF > ./functions/local/${function}/main.go
+cat << EOF > ./local/${function}/main.go
 package main
 
 import (
