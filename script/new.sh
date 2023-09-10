@@ -33,13 +33,13 @@ func ${entry}(w http.ResponseWriter, r *http.Request) {
 }
 EOF
 
-mkdir ./${function}/local
-touch ./${function}/local/main.go
+mkdir ./functions/${function}/local
+touch ./functions/${function}/local/main.go
 
 module=($(head -n 1 ./go.mod))
 mod="${module[1]}/functions/${function}"
 
-cat << EOF > ./${function}/local//main.go
+cat << EOF > ./functions/${function}/local/main.go
 package main
 
 import (
