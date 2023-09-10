@@ -33,13 +33,13 @@ func ${entry}(w http.ResponseWriter, r *http.Request) {
 }
 EOF
 
-mkdir ./local/${function}
-touch ./local/${function}/main.go
+mkdir ./${function}/local
+touch ./${function}/local/main.go
 
 module=($(head -n 1 ./go.mod))
 mod="${module[1]}/functions/${function}"
 
-cat << EOF > ./local/${function}/main.go
+cat << EOF > ./${function}/local//main.go
 package main
 
 import (
@@ -76,7 +76,7 @@ WORKDIR /app
 
 RUN go install github.com/cosmtrek/air@latest
 
-WORKDIR /app/local/${function}
+WORKDIR /app/functions/${function}/local
 
 CMD ["air"]
 EOF

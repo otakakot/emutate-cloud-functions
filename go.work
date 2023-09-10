@@ -1,7 +1,7 @@
 go 1.21.1
 
 use (
-    .
-    ./functions/foo
-    ./functions/bar
+	.
+	./functions/bar
+	./functions/foo
 )
