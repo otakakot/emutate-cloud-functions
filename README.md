@@ -30,6 +30,12 @@ make e2e
 make e2e2cloud
 ```
 
+# Add
+
+```shell
+./script/add.sh ${function}
+```
+
 # Deploy
 
 ```shell
