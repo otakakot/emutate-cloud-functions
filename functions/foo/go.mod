@@ -1,6 +1,6 @@
 module github.com/otakakot/emutate-cloud-functions/functions/foo
 
-go 1.21.1
+go 1.21.6
 
 require github.com/GoogleCloudPlatform/functions-framework-go v1.7.4
 
